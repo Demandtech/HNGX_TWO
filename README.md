@@ -23,4 +23,4 @@ $bun run dev
 ## Step 4: Get API access key
 
 
-[Bun](https://bun.sh/docs)
+More about Bun runtime? [Bun](https://bun.sh/docs)
