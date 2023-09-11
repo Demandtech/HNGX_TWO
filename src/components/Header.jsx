@@ -8,7 +8,7 @@ const Header = () => {
   const [query, setQuery] = useState('')
 
   return (
-    <header className='flex items-center justify-between bg-transparent text-white py-5  absolute top-0 left-0 w-full px-[15px] md:px-[2rem] lg:px-[100px] '>
+    <header className='flex items-center justify-between bg-transparent text-white py-5  absolute top-0 left-0 w-full px-[15px] md:px-[2rem] lg:px-[80px] '>
       <div className='flex items-center gap-2 '>
         <div className='w-[30px] lg:w-[50]'>
           <img src={logoImg} alt='logo Image' className='w-full' />

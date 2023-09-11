@@ -10,7 +10,7 @@ const HomeHero = () => {
         background: `url(${bg}) no-repeat center`,
         backgroundSize: 'cover',
       }}
-      className='lg:min-h-screen 2xl:min-h-[800px] px-[15px] md:px-[2rem] lg:px-[100px] py-[9rem] lg:py-0 flex items-center'
+      className='lg:min-h-screen 2xl:min-h-[800px] px-[15px] md:px-[2rem] lg:px-[80px] py-[9rem] lg:py-0 flex items-center'
     >
       {/* <Header /> */}
       <div className='flex h-full justify-self-center lg:pt-0'>
