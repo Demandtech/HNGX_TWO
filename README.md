@@ -1,7 +1,6 @@
+# Steps to run this project on local Machine
 
-#Steps to run this project on local Machine
-
-##Step 1: Clone repository  
+## Step 1: Clone repository  
  On your terminal navigate to the path you will like to clone the directory.
 Run:
 
@@ -9,16 +8,19 @@ Run:
 $ git clone https://github.com/Demandtech/HNGX_TWO.git
 ```
 
-##Step 2: Install Dependency
+## Step 2: Install Dependency
 Run:
 
 ``` 
 $ bun install
 ```
-##Step 3: Start the App
+## Step 3: Start the App
 Run:
 
 ``` 
 $bun run dev
 ```
-##Step 4: Get API access key
+## Step 4: Get API access key
+
+
+[Bun](https://bun.sh/docs)
