@@ -2,13 +2,27 @@ import { useState } from 'react'
 import logoImg from '../assets/images/logo.png'
 import menuIcon from '../assets/svgs/menu-icon.svg'
 import searchIcon from '../assets/svgs/search-icon.svg'
+import { useDispatch } from 'react-redux'
+import { getSearchMovie } from '../redux/movieThunk'
+import { toast } from 'react-toastify'
 
 const Header = () => {
+  const dispatch = useDispatch()
   const [openSearch, setOpenSearch] = useState(false)
   const [query, setQuery] = useState('')
 
+  const onSubmit = (e) => {
+    e.preventDefault()
+    if (query) {
+      dispatch(getSearchMovie(query))
+      setQuery('')
+    } else {
+      toast.info('Input is empty, Please enter an input!')
+    }
+  }
+
   return (
-    <header className='flex items-center justify-between bg-transparent text-white py-5  absolute top-0 left-0 w-full px-[15px] md:px-[2rem] lg:px-[80px] '>
+    <header className='z-50 flex items-center justify-between bg-transparent text-white py-5  absolute top-0 left-0 w-full px-[15px] md:px-[2rem] lg:px-[80px] '>
       <div className='flex items-center gap-2 '>
         <div className='w-[30px] lg:w-[50]'>
           <img src={logoImg} alt='logo Image' className='w-full' />
@@ -16,6 +30,7 @@ const Header = () => {
         <h4 className='font-[700] lg:text-[24px] leading-[24px]'>MovieBox</h4>
       </div>
       <form
+        onSubmit={onSubmit}
         className={`md:w-1/2  ${
           openSearch
             ? 'absolute transition-all duration-300 top-[70px] right-10 left-10 md:w-1/2 md:static '
@@ -37,7 +52,7 @@ const Header = () => {
           </div>
         </div>
       </form>
-      <div className='gap-5 flex items-center'>
+      <div className='gap-5 flex items-center z-50'>
         <button className='font-[700] leading-[24px]'>Sign In</button>
         <button
           onClick={() => setOpenSearch(!openSearch)}

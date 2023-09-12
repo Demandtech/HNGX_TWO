@@ -20,7 +20,8 @@ Run:
 ``` 
 $bun run dev
 ```
-## Step 4: Get API access key
 
+Note: You will need an API access, you can get it [Here](https://developer.themoviedb.org/reference/intro/getting-started)
 
-More about Bun runtime? [Bun](https://bun.sh/docs)
+More about Bun runtime? 
+  [Bun](https://bun.sh/docs)

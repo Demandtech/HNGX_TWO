@@ -1,3 +1,6 @@
+export let apiKey = import.meta.env.VITE_APP_API_KEY
+export let baseUrl = import.meta.env.VITE_APP_API_URL
+
 export const getUtcData = (data) => {
   if (data) {
     const localDate = new Date(data)

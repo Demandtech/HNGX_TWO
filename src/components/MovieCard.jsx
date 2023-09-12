@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 
 
 const MovieCard = ({ poster_path, original_title, release_date, id }) => {
-  console.log(id, release_date)
   return (
     <article data-testid='movie-card '>
       <div className='relative'>
