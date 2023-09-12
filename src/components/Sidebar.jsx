@@ -26,31 +26,25 @@ const Sidebar = () => {
           </NavLink>
         </li>
         <li className=' '>
-          <NavLink
-            className='text-[#666] pl-5 py-5 font-[600] flex items-center gap-3 '
-            to='/movie/id'
-          >
+          <span className='text-[#666] pl-5 py-5 font-[600] flex items-center gap-3 '>
             <img src={movieprojector} alt='Movies project image' />
             <span>Movies</span>
-          </NavLink>
+          </span>
         </li>
         <li className=''>
-          <NavLink
-            className='text-[#666] pl-5 py-5 font-[600] flex items-center gap-3 '
-            to='/tvseries'
-          >
+          <span className='text-[#666] pl-5 py-5 font-[600] flex items-center gap-3 '>
             <img src={tvshow} alt='Tv show ' />
             <span>TV Series</span>
-          </NavLink>
+          </span>
         </li>
         <li className=''>
-          <NavLink
+          <span
             className='text-[#666] pl-5 py-5 font-[600] flex items-center gap-3 '
             to='/comingsoon'
           >
             <img src={calenda} alt='Calender image' />
             <span>Upcoming</span>
-          </NavLink>
+          </span>
         </li>
       </ul>
       <div className='mx-5 px-2 pt-10 pb-5 rounded-[20px] border-[#be123cb3] bg-[#f8e7eb66] border text-[15px]'>
