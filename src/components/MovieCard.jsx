@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 import { ReactComponent as Heart } from '../assets/svgs/heart.svg'
 import imdb from '../assets/images/imdb.png'
 import rotten from '../assets/images/rotten.png'
 import { Link } from 'react-router-dom'
+
 
 const MovieCard = ({ poster_path, original_title, release_date, id }) => {
   console.log(id, release_date)

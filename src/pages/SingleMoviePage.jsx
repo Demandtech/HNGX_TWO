@@ -1,4 +1,3 @@
-import poster from '../assets/images/Poster.png'
 import star from '../assets/images/star.png'
 import expand from '../assets/images/expand-arrow.png'
 import rectangle from '../assets/images/rectangle.png'
@@ -9,6 +8,9 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
+import { getGenres, getTime, getUtcData } from '../utils'
+export const apiKey = import.meta.env.VITE_APP_API_KEY
+export const url = import.meta.env.VITE_APP_API_URL
 
 const SingleMoviePage = () => {
   const { id } = useParams()
@@ -19,41 +21,21 @@ const SingleMoviePage = () => {
   const { isLoading, data } = useQuery({
     queryKey: ['movies'],
     queryFn: () =>
-      axios.get(`https://api.themoviedb.org/3/movie/${id}`, {
+      axios.get(`${url}${id}`, {
         headers: {
           accept: 'application/json',
-          Authorization:
-            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YjUyYmQ2NzQwMWFlMGM1YjJmNTk0OWJmYzI0ODMzOSIsInN1YiI6IjY0ZmUyYjRmZGI0ZWQ2MTAzM2EwZmU4MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7qI-bGtAeIqsNZsprN9IQxdIFmcIYA11pIJMveKPKxA',
+          Authorization: `Bearer ${apiKey}`,
         },
       }),
   })
 
-  console.log(data)
-
   useEffect(() => {
-    if (data) {
-      const hours = Math.floor(data.data.runtime / 60)
-      const minutes = data.data.runtime % 60
+    setReleaseDate(getUtcData(data?.data?.release_date))
+    setGenres(getGenres(data?.data?.genres))
+    setRuntime(getTime(data?.data?.runtime))
+  }, [data])
 
-      setRuntime(`${hours}hr : ${minutes}mins`)
-
-      const localDate = new Date(data?.data.release_date)
-
-      const utcYear = localDate.getUTCFullYear()
-      const utcMonth = localDate.getUTCMonth() + 1
-      const utcDay = localDate.getUTCDate()
-
-      setReleaseDate(
-        `${utcYear}-${String(utcMonth).padStart(2, '0')}-${String(
-          utcDay
-        ).padStart(2, '0')}`
-      )
-
-      const genres = data?.data?.genres?.map((item) => item.name)
-
-      setGenres(genres)
-    }
-  }, [runtime, data])
+  console.log(genres)
 
   return (
     <main className='grid lg:grid-cols-[200px,1fr] min-h-screen singlepage'>
@@ -81,7 +63,10 @@ const SingleMoviePage = () => {
               <span className='rounded-[15px]  flex gap-3'>
                 {genres?.map((item) => {
                   return (
-                    <span className='text-sm rounded-2xl border px-2 border-[#F8E7EB]' key={item}>
+                    <span
+                      className='text-sm rounded-2xl border px-2 border-[#F8E7EB]'
+                      key={item}
+                    >
                       {item}
                     </span>
                   )
