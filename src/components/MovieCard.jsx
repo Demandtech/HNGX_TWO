@@ -1,17 +1,17 @@
 import { ReactComponent as Heart } from '../assets/svgs/heart.svg'
-import poster from '../assets/images/sm_poster.png'
 import imdb from '../assets/images/imdb.png'
 import rotten from '../assets/images/rotten.png'
 import { Link } from 'react-router-dom'
 
-const MovieCard = () => {
+const MovieCard = ({ poster_path, original_title, release_date, id }) => {
+  console.log(id, release_date)
   return (
     <article data-testid='movie-card '>
       <div className='relative'>
         <img
           data-testid='movie-poster'
           className='w-full'
-          src={poster}
+          src={`https://image.tmdb.org/t/p/original${poster_path}`}
           alt=''
         />
         <div className='flex items-center justify-between absolute top-[15px] right-[15px]  '>
@@ -26,14 +26,14 @@ const MovieCard = () => {
           data-testid='movie-release-date'
           className='text-[#9ca3af] text-[12px] font-[700] leading-normal'
         >
-          USA, 2016 - Current
+          {release_date}
         </p>
         <Link
-          to='movie/id'
+          to={`movie/${id}`}
           data-testid='movie-title'
           className='text-xl font-[800] text-[#111827] pt-3'
         >
-          Stranger Things
+          {original_title}
         </Link>
         <div className='flex items-center justify-between py-3'>
           <div className='flex items-center gap-2'>
