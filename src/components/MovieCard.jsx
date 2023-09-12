@@ -32,7 +32,7 @@ const MovieCard = ({ poster_path, original_title, release_date, id }) => {
         <Link
           to={`movie/${id}`}
           data-testid='movie-title'
-          className='text-xl font-[800] text-[#111827] pt-3'
+          className='text-xl font-[800] text-[#111827] pt-3 hover:text-[#B91C1C]'
         >
           {original_title}
         </Link>
