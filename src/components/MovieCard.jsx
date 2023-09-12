@@ -2,6 +2,7 @@ import { ReactComponent as Heart } from '../assets/svgs/heart.svg'
 import poster from '../assets/images/sm_poster.png'
 import imdb from '../assets/images/imdb.png'
 import rotten from '../assets/images/rotten.png'
+import { Link } from 'react-router-dom'
 
 const MovieCard = () => {
   return (
@@ -27,12 +28,13 @@ const MovieCard = () => {
         >
           USA, 2016 - Current
         </p>
-        <h4
+        <Link
+          to='movie/id'
           data-testid='movie-title'
           className='text-xl font-[800] text-[#111827] pt-3'
         >
           Stranger Things
-        </h4>
+        </Link>
         <div className='flex items-center justify-between py-3'>
           <div className='flex items-center gap-2'>
             <img src={imdb} alt=' imdb rating' className='inline' />{' '}

@@ -16,3 +16,13 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+
+.singlepage {
+  font-family: 'Poppins', sans-serif;
+}
+
+.active {
+  background-color: #be123c1a;
+  border-right: 6px solid #BE123C;
+  color: #BE123C;
+}
